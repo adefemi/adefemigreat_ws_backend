@@ -7,7 +7,7 @@ venv
 /venv
 migrations2/
 migrations2
-staticfiles
+#staticfiles
 #.env
 .env-live
 /.env-live
