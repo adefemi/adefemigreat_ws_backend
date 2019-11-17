@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'adefemigreat_backend',
     'rest_framework',
     'user_controller',
     'blog_controller',
