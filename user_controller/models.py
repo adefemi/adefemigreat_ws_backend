@@ -66,3 +66,16 @@ class User(AbstractBaseUser, PermissionsMixin):
     def save(self, *args, **kwargs):
         super().full_clean()
         super().save(*args, **kwargs)
+
+
+class SiteSettings(models.Model):
+    title = models.CharField(max_length=50, default="AdefemiGreat")
+    picture = models.TextField()
+    about = models.TextField()
+    resume = models.TextField()
+    copyright = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return "setting"
