@@ -1,0 +1,1 @@
+web: gunicorn adefemigreat_backend.wsgi --log-file -
