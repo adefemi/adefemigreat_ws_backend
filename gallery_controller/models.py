@@ -4,6 +4,7 @@ import uuid
 
 class Gallery(models.Model):
     title = models.CharField(max_length=255)
+    cover_image = models.TextField(null=True, blank=True)
     uuid = models.UUIDField(default=uuid.uuid4, unique=True, editable=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

@@ -5,6 +5,7 @@ import uuid
 class Project(models.Model):
     title = models.CharField(max_length=255)
     link = models.TextField()
+    cover_image = models.TextField(blank=True, null=True)
     description = models.TextField()
     uuid = models.UUIDField(default=uuid.uuid4, unique=True, editable=False)
     created_at = models.DateTimeField(auto_now_add=True)
