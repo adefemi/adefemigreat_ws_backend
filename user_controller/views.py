@@ -1,9 +1,12 @@
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.views import APIView
+from rest_framework.generics import RetrieveUpdateAPIView
+from rest_framework.viewsets import ModelViewSet
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.exceptions import APIException
-from .serializers import RegisterSerializer, LoginSerializer
+from .serializers import *
 from django.contrib.auth import get_user_model
 from django.db.models import Q
 
@@ -44,6 +47,18 @@ class Register(APIView):
             raise APIException(e)
 
         return Response("User created successfully", status=status.HTTP_201_CREATED)
+
+
+class SettingView(RetrieveUpdateAPIView):
+    queryset = SiteSettings.objects.all()
+    serializer_class = SiteSettingSerializer
+    permission_classes = (IsAuthenticatedOrReadOnly, )
+
+
+class SkillSetView(ModelViewSet):
+    queryset = SkillSet.objects.all()
+    serializer_class = SkillSetSerializer
+    permission_classes = (IsAuthenticatedOrReadOnly, )
 
 
 def get_tokens_for_user(user):
