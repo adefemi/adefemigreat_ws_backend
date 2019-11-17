@@ -1,6 +1,6 @@
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.views import APIView
-from rest_framework.generics import RetrieveUpdateAPIView
+from rest_framework.generics import ListAPIView
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
@@ -49,7 +49,7 @@ class Register(APIView):
         return Response("User created successfully", status=status.HTTP_201_CREATED)
 
 
-class SettingView(RetrieveUpdateAPIView):
+class SettingView(ListAPIView):
     queryset = SiteSettings.objects.all()
     serializer_class = SiteSettingSerializer
     permission_classes = (IsAuthenticatedOrReadOnly, )
