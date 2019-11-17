@@ -7,8 +7,8 @@ venv
 /venv
 migrations2/
 migrations2
-#staticfiles
-#.env
+staticfiles
+.env
 .env-live
 /.env-live
 **.vscode
